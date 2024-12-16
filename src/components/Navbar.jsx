@@ -127,7 +127,7 @@ const Navbar = () => {
                 >{nav.title}</a>
               ))}
               <a
-                href='https://www.dropbox.com/scl/fi/w3cp1jputakeov14w5yw5/resume_mathiasmendoza.pdf?rlkey=nkxzb4cv9d3hog1ocsp643uvj&st=ltlvlnrz&dl=0'
+                href='https://drive.google.com/file/d/1l3N8SquiAf7y901VxRkJfcwkosI4AmKa/view?usp=sharing'
                 target="_blank"
                 className="bg-gray-700 w-fit m-auto text-white hover:text-white block px-3 py-2 rounded-md text-base font-medium"
               >Resume <i className="fa-regular fa-paper-plane ml-1"></i></a>
