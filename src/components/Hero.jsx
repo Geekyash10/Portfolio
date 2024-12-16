@@ -1,38 +1,47 @@
-import { motion } from "framer-motion";
-import Typed from 'react-typed';
+import { motion } from 'framer-motion';
 import { styles } from "../styles";
 
 const Hero = () => {
+  const text = "Yash Mittal";
+  const characters = Array.from(text);
+
+  const textVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse",
+      },
+    },
+  };
+
+  const charVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+  };
 
   const floatVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
-      y: [0, -10, 0], // Float up and down
+      y: [0, -10, 0],
       opacity: 1,
       transition: {
         y: {
           duration: 1.8,
-          yoyo: Infinity, // Makes the animation repeat indefinitely
-          ease: 'easeInOut', // You can change the easing function
+          yoyo: Infinity,
+          ease: 'easeInOut',
         },
         opacity: { duration: 1.5 },
       },
     },
   };
 
-  
-  const typedOptions = {
-    strings: ['Yash Mittal'],
-    typeSpeed: 120,
-    startDelay: 4,
-    backSpeed: 140,
-  };
-
   return (
     <section className={`relative w-full h-screen mx-auto z-10`}>
-      <div
-        className={`absolute inset-0 top-[150px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
+      <div className={`absolute inset-0 top-[150px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
         <div className='flex flex-col justify-center items-center mt-5'>
           <div className='w-5 h-5 rounded-full bg-[#ff0132]' />
           <div className='w-1 sm:h-80 h-60 bg-gradient-to-b from-red-500 to-red-800' />
@@ -40,9 +49,19 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#ff0132]'>
-              <Typed {...typedOptions} loop/>
-            </span>
+            Hi, I'm{" "}
+            <motion.span
+              variants={textVariants}
+              initial="initial"
+              animate="animate"
+              className='text-[#ff0132]'
+            >
+              {characters.map((char, index) => (
+                <motion.span key={index} variants={charVariants}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.span>
           </h1>
 
           {/* Floating Animation for p */}
@@ -52,11 +71,11 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            whileInView="visible" // Add whileHover to keep the animation going
+            whileInView="visible"
           >
             I'm a Mern Stack Web Developer, <br className='sm:block hidden' />
             very passionate coder, always looking<br className='sm:block hidden' />
-            to expand my knoledge and create unique things!
+            to expand my knowledge and create unique things!
           </motion.p>
         </div>
       </div>
