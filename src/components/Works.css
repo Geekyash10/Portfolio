@@ -1,0 +1,32 @@
+/* Ensure the layout switches to column-wise for small screens */
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media query for responsiveness */
+@media screen and  (max-width: 1000px) {
+  .timeline-card {
+    flex-direction: column !important; /* Override row/row-reverse */
+  }
+
+  .timeline-photo-section,
+  .timeline-content-section {
+    width: 100%; /* Full width for both sections */
+  }
+
+  .timeline-connection-line {
+    display: none; /* Hide horizontal line for smaller screens */
+  }
+
+  .timeline-connection-circle {
+    display: none; /* Hide connection circle */
+  }
+
+  .timeline-line {
+    left: 0; /* Align vertical line for better visual placement */
+    width: 2px; /* Slightly thinner for smaller screens */
+    display: none;
+  }
+  
+}
