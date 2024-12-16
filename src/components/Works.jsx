@@ -1,6 +1,6 @@
 // Works.jsx
 import React from "react";
-import Tilt from "react-tilt";
+
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -48,14 +48,7 @@ const ProjectCard = ({
         variants={fadeIn("up", "spring", index * 0.5, 0.75)}
         className="relative z-10 w-full sm:w-1/2 timeline-photo-section"
       >
-        <Tilt
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
-          className="p-5 rounded-2xl w-full"
-        >
+       
           <div className="relative w-full h-[200px]">
             <img
               src={image}
@@ -90,7 +83,7 @@ const ProjectCard = ({
               )}
             </div>
           </div>
-        </Tilt>
+      
       </motion.div>
 
       {/* Content Section */}
