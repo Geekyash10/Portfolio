@@ -13,7 +13,7 @@
     "@headlessui/react": "^1.7.17",
     "@react-three/drei": "^9.56.24",
     "@react-three/fiber": "^8.11.1",
-    "@remix-run/react": "^2.2.0",
+    "@remix-run/react": "^1.19.3",
     "caniuse-lite": "^1.0.30001561",
     "framer-motion": "^9.0.7",
     "heroicons": "^2.0.18",
