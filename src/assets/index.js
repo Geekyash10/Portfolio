@@ -17,7 +17,7 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import python from './tech/python.png'
-import Express from './tech/express.png'
+import Express from './tech/Express.png'
 import Sass from './tech/Sass.png'
 import Postman from './tech/Postman.png'
 import Clang from './tech/C++.png'
