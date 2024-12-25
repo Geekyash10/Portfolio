@@ -2,26 +2,12 @@ import {
   
   backend,
   web,
-  javascript,
   
-  python,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-Express,
   GeekClash,
   bizoally,
   DulitFest,
   Sportzpod,
-  github,
-  Clang,
-  Sass,
-  Postman,
+ 
   geekClash,
   dulitfestphoto,
   coadeaz,
@@ -72,73 +58,6 @@ const services = [
   },
 ];
 
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-
-  {
-    name: "git",
-    icon: git,
-  },
-
-  {
-    name: "python3",
-    icon: python,
-  },
-  {
-    name:"Express js",
-    icon:Express
-  },
-  {
-    name:"Github",
-    icon:github
-  },
-  {
-    name:"C++",
-    icon:Clang
-  },
-  {
-    name:"Sass",
-    icon:Sass
-  },
-  {
-    name:"Postman",
-    icon:Postman
-  },
-  
-
-];
 
 const experiences = [
   {
@@ -452,4 +371,4 @@ const projects = [
 
 ];
 
-export { services, technologies, experiences, projects };
+export { services,  experiences, projects };
