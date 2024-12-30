@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-Welcome to my personal portfolio website! This platform is designed to showcase my professional journey, skills, and notable projects. It provides an interactive and comprehensive view of my capabilities and achievements.
+Welcome to my personal portfolio website! This website is designed to showcase my professional journey, skills, and notable projects. It provides an interactive and comprehensive view of my capabilities and achievements.
 
 🌐 **Live Website**: [yashmittal10.vercel.app](https://yashmittal10.vercel.app/)
 
