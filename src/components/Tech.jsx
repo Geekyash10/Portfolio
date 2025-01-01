@@ -1,4 +1,5 @@
 import { Fade } from "react-awesome-reveal";
+import { SectionWrapper } from "../hoc";
 
 const skills = [
   {
@@ -83,7 +84,7 @@ const skills = [
 
 ];
 
-export default function Skills() {
+ const Tech = () => {
   return (
     <section id="skills" className="px-4 py-10 sm:px-10 md:px-16">
       <div className="mx-auto px-4">
@@ -116,3 +117,5 @@ export default function Skills() {
     </section>
   );
 }
+
+export default SectionWrapper(Tech, "skills");
