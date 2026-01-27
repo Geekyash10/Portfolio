@@ -1,7 +1,7 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
 import { ArrowUpRight, Stamp, Newspaper, TrendingUp } from "lucide-react";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const stats = [
     { label: "HACKATHONS", value: "05+" },
@@ -37,18 +37,45 @@ const awards = [
 ];
 
 function NewspaperCard({ award, index }: { award: any, index: number }) {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    useEffect(() => {
+        x.set(Math.random() * 50 - 25);
+        y.set(Math.random() * 30 - 15);
+    }, []);
+
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30, rotate: award.rotation }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: index * 0.08, duration: 0.5, ease: [0.2, 0.65, 0.3, 0.9] }}
-            whileHover={{ scale: 1.02, rotate: 0 }}
-            style={{ 
-                willChange: 'transform',
-                transformStyle: 'preserve-3d'
+            drag
+            dragConstraints={{ left: -5000, right: 5000, top: -5000, bottom: 5000 }}
+            dragMomentum={false}
+            dragElastic={0}
+            initial={{ 
+                opacity: 0,
+                rotate: award.rotation,
             }}
-            className="group relative bg-[#f4f1ea] text-zinc-900 p-4 sm:p-5 md:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.5)] max-w-sm mx-auto w-full transition-all duration-200"
+            whileInView={{ 
+                opacity: 1,
+            }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ 
+                opacity: { delay: index * 0.08, duration: 0.5, ease: [0.2, 0.65, 0.3, 0.9] },
+            }}
+            dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
+            whileHover={{ scale: 1.05, rotate: 0, zIndex: 100, cursor: "grab" }}
+            whileDrag={{ 
+                scale: 1.1, 
+                zIndex: 100, 
+                cursor: "grabbing",
+                rotate: 0,
+            }}
+            style={{ 
+                x,
+                y,
+                willChange: 'transform',
+            }}
+            className="group relative bg-[#f4f1ea] text-zinc-900 p-4 sm:p-5 md:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.5)] max-w-sm mx-auto w-full select-none"
         >
             {/* Simplified Paper Texture - Reduced opacity and removed expensive mix-blend */}
             <div 
@@ -193,7 +220,7 @@ export default function Achievements() {
 
                  {/* Cards Grid - Responsive */}
                  <div 
-                    className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12"
+                    className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative"
                     style={{ willChange: 'auto' }}
                  >
                      {awards.map((award, i) => (

@@ -10,13 +10,13 @@ export default function SmoothScroll({
 	useEffect(() => {
 		// Optimized Lenis configuration for better performance
 		const lenis = new Lenis({
-			duration: 1.0, // Slightly faster for better responsiveness
+			duration: 1.2, // Increased for smoother momentum
 			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 			orientation: "vertical",
 			gestureOrientation: "vertical",
 			smoothWheel: true,
-			wheelMultiplier: 0.8, // Reduced for smoother feel
-			touchMultiplier: 1.5,
+			wheelMultiplier: 1.0, // Standard multiplier for responsive feel
+			touchMultiplier: 2.0, // More responsive on touch
 		});
 
 		let rafId: number;
