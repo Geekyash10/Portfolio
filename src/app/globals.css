@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 240, 240, 240;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 10, 10;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: black;
+  overflow-x: hidden;
+  /* Performance optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize animations and transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* GPU acceleration for smooth animations */
+[class*="motion-"],
+[data-framer-component] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize Achievements section cards */
+.achievements-section [class*="motion-"],
+.achievements-section .group {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.achievements-section .group:hover {
+  transform: translateZ(0) scale(1.02);
+}
+
+/* Reduce animation complexity on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, rgba(0,0,0,0.12) 0, transparent 1px),
+    repeating-radial-gradient(circle at 100% 100%, rgba(255,255,255,0.08) 0, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.18;
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
