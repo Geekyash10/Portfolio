@@ -1,6 +1,6 @@
 # Portfolio
 
-Hlo! This is my personal portfolio website built with Next.js. Create something that stands out from the typical portfolio templates, so went with a unique newspaper-inspired design with some cool interactive elements.
+HEY! This is my personal portfolio website built with Next.js. Create something that stands out from the typical portfolio templates, so went with a unique newspaper-inspired design with some cool interactive elements.
 
 ##  Tech Stack
 
