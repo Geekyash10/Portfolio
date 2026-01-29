@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/ui/smooth-scroll";
+import { PostHogProvider } from "./providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -24,7 +25,9 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} ${outfit.variable} font-sans antialiased text-white bg-black`}
 			>
-				<SmoothScroll>{children}</SmoothScroll>
+				<PostHogProvider>
+					<SmoothScroll>{children}</SmoothScroll>
+				</PostHogProvider>
 			</body>
 		</html>
 	);
