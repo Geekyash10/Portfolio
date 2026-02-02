@@ -23,7 +23,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${inter.variable} ${outfit.variable} font-sans antialiased text-white bg-black`}
+				className={`${inter.variable} ${outfit.variable} font-sans antialiased text-white bg-black relative`}
 			>
 				<PostHogProvider>
 					<SmoothScroll>{children}</SmoothScroll>

@@ -25,10 +25,17 @@ function PostHogPageView() {
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-      capture_pageview: false // Disable automatic pageview capture, as we capture manually
-    })
+    if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+      return
+    }
+    
+    // Check if not already initialized to avoid warning in strict mode
+    if (!(posthog as any).__loaded) {
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+        capture_pageview: false // Disable automatic pageview capture, as we capture manually
+      })
+    }
   }, [])
 
   return (
